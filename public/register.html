@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Urbanistika — регистрация</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Oswald:wght@500&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="auth">
+<aside class="side">
+<a class="logo" href="/">Urbanistika</a>
+<div><h1>Учись. Проектируй. Меняй город.</h1>
+<ul><li>Модули курса — бесплатно для всех</li><li>Дипломный проект — мастер-план места в вашем районе</li><li>Финал и голосование жителей</li></ul></div>
+</aside>
+<main class="main"><div class="card">
+<div class="tabs"><button data-t="reg" class="on">Регистрация</button><button data-t="log">Вход</button></div>
+
+<form id="reg" novalidate>
+<h2>Создайте аккаунт</h2><p class="sub">Это займёт меньше минуты.</p>
+<div class="f"><label>Имя</label><input name="name" autocomplete="name"><div class="e"></div></div>
+<div class="f"><label>Email</label><input name="email" type="email" autocomplete="email"><div class="e"></div></div>
+<div class="f"><label>Город и район</label><input name="city"><div class="e"></div></div>
+<div class="f"><label>Пароль</label><input name="password" type="password" autocomplete="new-password"><button type="button" class="eye" aria-label="Показать пароль">👁</button><div class="e"></div></div>
+<div class="f"><label>Повторите пароль</label><input name="password2" type="password" autocomplete="new-password"><div class="e"></div></div>
+<label class="ck"><input type="checkbox" name="ok" required><span>Согласен на обработку персональных данных</span></label>
+<button class="btn" type="submit">Зарегистрироваться</button>
+<p class="alt">Уже есть аккаунт? <a data-t="log">Войти</a></p>
+</form>
+
+<form id="log" novalidate hidden>
+<h2>С возвращением</h2><p class="sub">Войдите, чтобы продолжить обучение.</p>
+<div class="f"><label>Email</label><input name="email" type="email" autocomplete="email"></div>
+<div class="f"><label>Пароль</label><input name="password" type="password" autocomplete="current-password"><button type="button" class="eye" aria-label="Показать пароль">👁</button><div class="e"></div></div>
+<button class="btn gap" type="submit">Войти</button>
+<p class="alt">Нет аккаунта? <a data-t="reg">Зарегистрироваться</a></p>
+</form>
+
+</div></main>
+</div>
+<script src="util.js"></script>
+<script src="auth.js"></script>
+<script src="register.js"></script>
+</body>
+</html>

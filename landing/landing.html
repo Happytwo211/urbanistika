@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Urbanistika — бесплатная программа по основам урбанистики</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&family=Oswald:wght@300;400;500;600&display=swap">
+<style>
+:root{--d:#2e2b28;--m:#3a3632;--l:#f7f2ec;--g:#bfb9b4;--p:#5432cb}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:16px/24px Manrope,sans-serif;background:var(--m);color:var(--l)}
+h1,h2,h3,.o{font-family:Oswald,sans-serif;text-transform:uppercase;font-weight:500}
+img{display:block;max-width:100%}
+section{padding:38px 24px;position:relative}
+.row{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;max-width:1440px;margin:auto}
+.a{grid-column:1/5}.b{grid-column:6/13}
+.lab{grid-column:1/-1;font-size:14px;text-transform:uppercase;display:flex;gap:8px;align-items:center;padding-bottom:30px;margin-bottom:8px;border-bottom:1px solid #524e4b}
+.lab:before{content:"";width:8px;height:8px;border-radius:2px;background:currentColor}
+h2{font-weight:400;font-size:42px;line-height:54px;letter-spacing:-1.26px}
+.btn{display:inline-flex;gap:64px;align-items:center;justify-content:space-between;background:var(--p);color:#fff;border:0;padding:10px 12px;font:500 18px/24px Manrope,sans-serif;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.mut{color:var(--g)}
+/* hero */
+.hero{min-height:100vh;padding:24px;display:grid;grid-template-rows:auto 1fr;background:linear-gradient(rgba(31,29,27,.62),rgba(31,29,27,.62)) center/cover}
+.hero>*{max-width:1392px;width:100%;margin:auto}
+.top{display:flex;justify-content:space-between;align-items:flex-start}
+.top img{height:86px}
+.act{display:flex;gap:4px;padding:4px;background:rgba(247,242,236,.12);backdrop-filter:blur(18px);align-items:center}
+.act img{height:40px}
+.act .btn{font-size:14px;line-height:20px;gap:10px}
+.hb{display:grid;grid-template-columns:1fr 448px;gap:24px;align-items:end;margin-top:60px}
+.hb h1{font-weight:600;font-size:64px;line-height:74px;letter-spacing:-1.74px;max-width:802px;margin-bottom:38px}
+.hb p.i{font-size:20px;line-height:28px;font-weight:500;max-width:566px;margin-bottom:28px}
+.st{grid-column:2;grid-row:1;align-self:start;margin-bottom:200px}
+.st div{display:flex;justify-content:space-between;align-items:flex-start;border-top:1.5px solid #fff;padding-top:8px;margin-bottom:18px}
+.st b{font:400 64px/74px Oswald,sans-serif;letter-spacing:-1.74px}
+.st span{padding-top:10px}
+.fc{grid-column:2;display:flex;gap:4px;padding:4px;background:rgba(247,242,236,.12);backdrop-filter:blur(18px)}
+.fc img{width:172px;height:170px;object-fit:cover}
+.fc div{padding:8px;display:flex;flex-direction:column;gap:24px}
+.fc small{font-size:12px;text-transform:uppercase}
+.fc h3{font-size:16px;line-height:20px;font-weight:700}
+.fc p{color:rgba(255,255,255,.6);margin-top:8px;line-height:20px}
+/* about */
+.gal{display:flex;gap:16px;margin:40px -24px 0;overflow:hidden}
+.gal img{width:596px;height:452px;object-fit:cover;flex:none}
+.big{font-size:32px;line-height:37px;letter-spacing:-.72px;margin-bottom:28px}
+/* benefits */
+details{border-bottom:1px solid #524e4b;color:#524e4b}
+details[open]{background:#2e2b28;color:var(--l);border:0}
+summary{display:flex;gap:24px;align-items:center;padding:24px;list-style:none;cursor:pointer;font:500 20px/24px Oswald,sans-serif;text-transform:uppercase}
+summary::-webkit-details-marker{display:none}
+summary i{font-style:normal;font-weight:300;width:94px}
+summary b{flex:1;font-weight:500}
+summary:after{content:"+";font:300 30px/30px Manrope,sans-serif}
+details[open] summary:after{content:"×"}
+details div{padding:0 24px 30px 142px}
+details img{width:278px;height:200px;object-fit:cover;margin-bottom:16px}
+/* members */
+.lt{background:#edeae6;color:var(--d)}
+.lt .lab{border-color:#cbc6c2}
+.lt .mut{color:#7b7874}
+.sl{grid-column:6/-1;display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.card{flex:none;width:330px;min-height:624px;background:#dbd7d3;scroll-snap-align:start}
+.card img{width:100%;height:440px;object-fit:cover;object-position:top}
+.card div{padding:18px 20px}
+.card h3{font-size:18px;line-height:20px;margin-bottom:18px}
+.card b{display:block;font-weight:500;margin-bottom:10px}
+.nav{display:flex;gap:8px;margin-top:40px}
+.nav button{width:56px;height:56px;border:0;border-radius:4px;background:var(--d);color:#fff;font-size:22px;cursor:pointer}
+/* formats */
+.fm{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;grid-auto-flow:column;gap:24px;margin-top:20px}
+.fm div{background:var(--d);padding:32px 20px 40px;display:flex;flex-direction:column;justify-content:space-between;min-height:370px}
+.fm div:nth-child(1),.fm div:nth-child(6){background:var(--p)}
+.fm div:nth-child(n+3){transform:translateY(96px)}.fm div:nth-child(n+5){transform:translateY(0);margin-top:96px}
+.fm h3{font-size:30px;line-height:34px;padding-bottom:36px;border-bottom:1px solid rgba(247,242,236,.3);margin-bottom:36px}
+.fm p{color:var(--g)}
+.fm{padding-bottom:100px}
+/* form */
+.ap{background:linear-gradient(rgba(31,29,27,.82),rgba(31,29,27,.82)) center/cover}
+.ap h2{font:600 64px/74px Oswald,sans-serif;letter-spacing:-1.74px}
+form{background:#fff;color:var(--d);padding:36px 28px;display:grid;grid-template-columns:1fr 1fr;gap:32px 24px}
+form h2{grid-column:1/-1}
+form .f{grid-column:1/-1}.f.h{grid-column:auto}
+input,textarea{width:100%;background:#f3f2f0;border:1px solid transparent;padding:14px 10px;font:500 16px Manrope,sans-serif;color:var(--d)}
+input:focus,textarea:focus{outline:0;border-color:var(--p);background:#fff}
+textarea{height:96px;resize:vertical}
+.ck{grid-column:1/-1;display:flex;gap:12px;font-weight:500}
+.ck input{width:24px;height:24px;flex:none;accent-color:var(--p)}
+form .btn{grid-column:1/-1;justify-self:start}
+.q{font-size:32px;line-height:37px;letter-spacing:-.72px;margin:32px 0}
+/* footer */
+footer{background:var(--d);padding:76px 24px 32px}
+footer .row>div>p:first-child{color:var(--g);margin-bottom:24px}
+footer a{display:block;color:#f2eeea;font:500 24px/32px Oswald,sans-serif;text-transform:uppercase;margin-bottom:12px;text-decoration:none}
+footer .c{font:500 20px/24px Manrope,sans-serif}
+.cp{grid-column:1/-1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid #524e4b;margin-top:60px;padding-top:32px;font-size:14px;color:var(--g)}
+@media(max-width:900px){
+.row{display:block}.a,.b,.sl{margin-bottom:28px}
+h2,.ap h2{font-size:32px;line-height:40px}.hb{display:block}.hb h1{font-size:40px;line-height:48px}.st{margin:40px 0}.fc{margin-top:32px}
+.gal{margin-top:24px}details div{padding-left:24px}summary i{width:50px}
+.fm{display:block}.fm div{margin-bottom:16px;transform:none!important;margin-top:0!important}
+form{grid-template-columns:1fr}.f.h{grid-column:1/-1}footer .row>div{margin-bottom:32px}}
+:root{--p:#2f7d55}
+.hero{background:linear-gradient(rgba(20,28,23,.62),rgba(20,28,23,.62)),url(assets/park-1.jpg) center/cover}
+.ap{background:linear-gradient(rgba(20,28,23,.82),rgba(20,28,23,.82)),url(assets/park-2.jpg) center/cover}
+.gal{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 24px}.gal img{scroll-snap-align:start}
+a.fc{color:inherit;text-decoration:none;transition:background .2s}a.fc:hover{background:rgba(247,242,236,.22)}
+.fc .pl{position:relative;flex:none;padding:0;display:block}.pl:after{content:"▶";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:22px;text-shadow:0 0 8px rgba(0,0,0,.5)}
+#fe{grid-column:1/-1;color:#d64b3a;font-size:13px;line-height:18px}#fe:empty{display:none}
+.pp{position:fixed;inset:0;background:rgba(15,20,17,.72);display:grid;place-items:center;padding:16px;z-index:50}
+.pp[hidden]{display:none}
+.pp div{background:#fff;color:var(--d);padding:36px;max-width:420px;width:100%}
+.pp h3{font:600 32px/40px Oswald,sans-serif;text-transform:uppercase;margin-bottom:12px}
+.pp p{color:#7b7874;margin-bottom:24px}
+.hero{grid-template-columns:minmax(0,1fr)}.hero>*{min-width:0}
+@media(max-width:600px){.top{flex-wrap:wrap;gap:12px}.act{margin-left:auto}}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="top"><span class="o" style="font-size:32px;letter-spacing:3px">Urbanistika</span>
+<div class="act"><a class="btn" href="/register.html#login" style="background:transparent">Войти</a><a class="btn" href="#apply">Записаться ↳</a></div></div>
+<div class="hb">
+<div><h1>Спроектируй район своими руками</h1>
+<p class="i">Бесплатная образовательная программа по основам урбанистики. Учись, создай мастер-план и поборись за то, чтобы твой проект построили по-настоящему.</p>
+<a class="btn" href="#apply">Записаться <span>↳</span></a></div>
+<div class="st"><div><b>20+</b><span>Городов в программе</span></div><div><b>96%</b><span>Участников довольны</span></div><div><b>12</b><span>Проектов реализовано</span></div></div>
+<a class="fc" href="#path"><div class="pl"><img src="assets/park-4.jpg" alt=""></div><div><small>О программе</small><div style="padding:0"><h3>Urbanistika изнутри: как учиться и менять город</h3><p>Коротко о курсах, мастер-плане и голосовании жителей.</p></div></div></a>
+</div></header>
+
+<section id="about"><div class="row">
+<div class="lab">О программе</div>
+<div class="b" style="grid-row:2"><p class="big">Urbanistika — платформа, где любой человек осваивает основы урбанистики и сразу применяет их: проектирует улучшение реального места в своём районе.</p>
+<a class="btn" href="#apply">Записаться <span>↳</span></a></div></div>
+<div class="gal"><img src="assets/park-2.jpg" alt="Городская среда" loading="lazy"><img src="assets/park-3.jpg" alt="Городская среда" loading="lazy"><img src="assets/park-4.jpg" alt="Городская среда" loading="lazy"><img src="assets/park-1.jpg" alt="Городская среда" loading="lazy"></div>
+</section>
+
+<section id="path"><div class="row">
+<div class="lab">Путь участника</div>
+<div class="a"><h2>От первого урока до реального проекта</h2><p class="mut" style="margin-top:24px">Четыре шага, на каждом из которых вы становитесь ближе к настоящим изменениям в городе.</p></div>
+<div class="b">
+<details name="s" open><summary><i>(01)</i><b>Регистрация и обучение</b></summary><div><img src="assets/park-3.jpg" alt="" loading="lazy"><p>Создайте аккаунт и проходите курсы в своём темпе: от основ городской среды до работы с бюджетом проекта. Всё бесплатно и доступно каждому.</p></div></details>
+<details name="s"><summary><i>(02)</i><b>Дипломный проект</b></summary><div><p>Выберите место в районе и создайте мастер-план: озеленение, установка архитектурных объектов, пространства для людей.</p></div></details>
+<details name="s"><summary><i>(03)</i><b>Финал</b></summary><div><p>Лучшие участники проходят в финал и представляют свои мастер-планы жителям.</p></div></details>
+<details name="s"><summary><i>(04)</i><b>Голосование и реализация</b></summary><div><p>Жители голосуют за финалистов. Проект победителя переносится в реальную жизнь.</p></div></details>
+</div></div></section>
+
+<section class="lt" id="concept"><div class="row">
+<div class="lab">Концепция</div>
+<div class="a" style="grid-column:1/6"><h2>Учишься, проектируешь, побеждаешь вместе с жителями</h2></div>
+<div class="b"><p style="font-weight:500;margin-bottom:20px">Сначала вы проходите курсы по основам урбанистики: от устройства города до общественных пространств, озеленения и архитектуры. Всё бесплатно и доступно каждому.</p>
+<p class="mut" style="margin-bottom:20px">Знания сразу идут в дело. Дипломный проект — это мастер-план улучшения конкретного места в вашем районе: где добавить зелень, какие объекты и архитектурные формы сделают пространство удобным для людей.</p>
+<p class="mut">Лучшие участники проходят в финал и представляют свои проекты. Дальше слово за жителями: они голосуют за лучший мастер-план, а проект победителя переносится в реальную жизнь, и место в районе действительно меняется.</p></div></div></section>
+
+<section id="program"><div class="row">
+<div class="lab">Программа курсов</div>
+<div class="b"><h2>Шесть модулей — от азов до мастер-плана</h2></div>
+<div class="fm">
+<div><span class="o">01</span><section style="padding:0"><h3>Что такое город</h3><p>Как устроен город, кто и как принимает решения о его развитии.</p></section></div>
+<div><span class="o">02</span><section style="padding:0"><h3>Общественные пространства</h3><p>Парки, площади и дворы: что делает место удобным для людей.</p></section></div>
+<div><span class="o">03</span><section style="padding:0"><h3>Озеленение и экология</h3><p>Деревья, газоны и сады: как зелень улучшает городскую среду.</p></section></div>
+<div><span class="o">04</span><section style="padding:0"><h3>Архитектура и малые формы</h3><p>Павильоны, скамейки, освещение и другие объекты среды.</p></section></div>
+<div><span class="o">05</span><section style="padding:0"><h3>Участие жителей</h3><p>Как учитывать мнение людей и объяснять свои решения.</p></section></div>
+<div><span class="o">06</span><section style="padding:0"><h3>Мастер-план</h3><p>Соберите всё вместе: проект места, который можно показать жителям.</p></section></div>
+</div></div></section>
+
+<section class="ap" id="apply"><div class="row">
+<div class="a" style="grid-column:1/6"><h2>Начни с первого курса</h2>
+<p class="mut" style="margin-top:28px">Оставьте заявку — когда платформа откроется, мы пришлём доступ к курсам.</p></div>
+<form id="fm" style="grid-column:7/13">
+<h2>Записаться</h2>
+<div class="f h"><input name="name" placeholder="Имя*" autocomplete="name" required></div><div class="f h"><input name="email" type="email" placeholder="Email*" autocomplete="email" required></div>
+<div class="f"><input name="phone" type="tel" placeholder="Телефон*" autocomplete="tel" required></div>
+<div class="f"><input name="city" placeholder="Город и район*" required></div>
+<label class="ck"><input type="checkbox" required><span>Даю <u>согласие</u> на обработку персональных данных.</span></label>
+<div id="fe"></div>
+<button class="btn" type="submit">Записаться <span>↳</span></button>
+</form></div></section>
+
+<footer><div class="row">
+<div style="grid-column:1/5"><span class="o" style="font-size:32px;letter-spacing:3px">Urbanistika</span><p class="mut" style="margin-top:24px">Бесплатная образовательная программа по основам урбанистики.</p></div>
+<div style="grid-column:6/9"><p>Разделы</p><a href="#about">О программе</a><a href="#path">Путь участника</a><a href="#program">Программа курсов</a><a href="#apply">Записаться</a></div>
+<div style="grid-column:9/13"><p>Связь</p><a class="c" href="mailto:hello@urbanistika.example">hello@urbanistika.example</a></div>
+<div class="cp"><span>2026 © Urbanistika</span><span>Политика конфиденциальности</span><span>Фото: Pexels</span></div>
+</div></footer>
+<div class="pp" id="pp" hidden role="dialog" aria-modal="true"><div><h3>Спасибо!</h3><p>Заявка принята. С вами свяжутся в ближайшее время.</p><button class="btn" id="ppx" type="button">Хорошо</button></div></div>
+<script>
+const fm=document.getElementById('fm'),pp=document.getElementById('pp'),fe=document.getElementById('fe');
+const closePp=()=>{pp.hidden=true};
+document.getElementById('ppx').onclick=closePp;
+pp.onclick=e=>{if(e.target===pp)closePp()};
+document.addEventListener('keydown',e=>{if(e.key=='Escape')closePp()});
+fm.onsubmit=async e=>{
+  e.preventDefault();fe.textContent='';
+  const d=Object.fromEntries(new FormData(fm)),phone=d.phone.trim(),digits=phone.replace(/\D/g,'');
+  if(!/^\+?[\d\s()\-]{6,25}$/.test(phone)||digits.length<10||digits.length>15){fe.textContent='Введите корректный телефон';return}
+  const b=fm.querySelector('.btn');b.disabled=true;
+  try{
+    const r=await fetch('/api/apply',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:d.name.trim(),email:d.email.trim(),phone,city:d.city.trim()})});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok){fe.textContent=Object.values(j.fields||{})[0]||j.error||'Не удалось отправить заявку';return}
+    fm.reset();pp.hidden=false;
+  }catch(x){fe.textContent='Не удалось отправить заявку. Попробуйте позже.'}
+  finally{b.disabled=false}
+};
+</script>
+</body>
+</html>
